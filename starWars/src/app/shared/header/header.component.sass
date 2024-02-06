@@ -1,15 +1,32 @@
+
 .header
     display: flex
     background-color: black
     height: 150px
 
-    
-    .logoContainer
-        //display: flex
-        justify-content: center
-        
-        .logoStarWars
-            width: 200px
+    .pageInfo
+        width: 33.3%
 
-    .signIn
-        color: white
+    .logoContainer
+        display: flex
+        flex-wrap: wrap
+        width: 33.3%
+        justify-content: center
+        align-content: center
+
+        .logoStarWars
+            width: 185px
+            height: 80px
+
+    .userOptions
+        width: 33.3%
+        
+        .userLoginOptions
+            display: flex
+            justify-content: end
+            margin: 30px
+
+            .userLogins
+                color: grey
+                margin: 5px
+                font-family: 'starWarsFont', sans-serif
