@@ -1,0 +1,18 @@
+<p>characters-list works!</p>
+
+<ul class="charactersContainer">
+    <li *ngFor="let character of characters" class="charactersContainer">
+        <div class="characterContainer">
+            <div class="characters">
+                <div class="charactersContent">
+                    <div class="charactersNameContainer">
+                        <p class="charactersName">{{ character.name }}</p>
+                    </div>
+                    <div class="charactersGenderContainer">
+                        <p class="charactersGender">{{ character.gender }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>

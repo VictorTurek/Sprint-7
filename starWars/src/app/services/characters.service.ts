@@ -7,14 +7,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 
-export class StarshipsService {
-  
+export class CharactersService {
+
   private apiUrl = 'https://swapi.dev/api/';
 
   constructor(private http: HttpClient) { }
 
-  getStarships(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}starships/`);
+  getCharacters(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}people/`);
   }
 
 }
