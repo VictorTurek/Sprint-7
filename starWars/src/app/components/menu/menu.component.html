@@ -2,16 +2,17 @@
     <div class="menuOptionsContainer">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link home menuOption" (click)="selectComponent('home')">Home</a>
+                <a class="nav-link home menuOption" (click)="selectComponent('home')"
+                    routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link starships menuOption" (click)="selectComponent('starships')">Starships</a>
+                <a class="nav-link starships menuOption" (click)="selectComponent('starships')"
+                    routerLink="/Starships" routerLinkActive="active">Starships</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link characters menuOption" (click)="selectComponent('characters')">Characters</a>
+                <a class="nav-link characters menuOption" (click)="selectComponent('characters')"
+                    routerLink="/characters" routerLinkActive="active">Characters</a>
             </li>
         </ul>
     </div>
 </div>
-
-
