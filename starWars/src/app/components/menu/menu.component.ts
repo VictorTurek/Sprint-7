@@ -9,11 +9,11 @@ import { RouterLinkActive } from '@angular/router';
   styleUrl: './menu.component.sass'
 })
 export class MenuComponent {
-  @Output() selected = new EventEmitter<string>();
+  @Output() componentSelected = new EventEmitter<string>();
 
   constructor() { }
 
   selectComponent(component: string) {
-    this.selected.emit(component);
+    this.componentSelected.emit(component);
   }
 }

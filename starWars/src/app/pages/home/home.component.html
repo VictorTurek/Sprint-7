@@ -1,11 +1,7 @@
-<app-header/>
-
-<!-- aqui va la animacio de home per defecte. -->
-
-<app-menu (selected)="selectComponent($event)"></app-menu>
-
-<app-home-list *ngIf="selectedComponent === 'home'"></app-home-list>
-<app-starships *ngIf="selectedComponent === 'starships'"></app-starships>
-<app-characters-list *ngIf="selectedComponent === 'characters'"></app-characters-list>
+<app-header></app-header>
+<app-menu (componentSelected)="showComponent($event)"></app-menu>
+<app-home-list *ngIf="currentComponent === 'home'"></app-home-list>
+<app-starships *ngIf="currentComponent === 'starships'"></app-starships>
+<app-characters-list *ngIf="currentComponent === 'characters'"></app-characters-list>
 
 
