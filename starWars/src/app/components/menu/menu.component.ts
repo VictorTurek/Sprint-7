@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -9,5 +9,11 @@ import { RouterLinkActive } from '@angular/router';
   styleUrl: './menu.component.sass'
 })
 export class MenuComponent {
+  @Output() selected = new EventEmitter<string>();
 
+  constructor() { }
+
+  selectComponent(component: string) {
+    this.selected.emit(component);
+  }
 }
