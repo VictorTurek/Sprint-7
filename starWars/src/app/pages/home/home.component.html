@@ -1,7 +1,5 @@
 <app-header></app-header>
 <app-menu (componentSelected)="showComponent($event)"></app-menu>
-<app-home-list *ngIf="currentComponent === 'home'"></app-home-list>
+<app-home-list *ngIf="currentComponent === 'home'" (componentSelected)="showComponent($event)"></app-home-list>
 <app-starships *ngIf="currentComponent === 'starships'"></app-starships>
 <app-characters-list *ngIf="currentComponent === 'characters'"></app-characters-list>
-
-

@@ -20,7 +20,7 @@ export class StarshipsListComponent implements OnInit {
   ngOnInit(): void {
     this.starshipsService.getStarships().subscribe(data => {
       this.starShips = data.results;
-      console.log(this.starShips)
+      //console.log(this.starShips)
     });
   }
 

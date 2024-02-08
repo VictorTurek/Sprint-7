@@ -14,10 +14,16 @@ import { HomeListComponent } from '../../components/home-list/home-list.componen
   styleUrl: './home.component.sass'
 })
 export class HomeComponent {
+
   currentComponent: string = 'home';
 
+  constructor() { }
+
   showComponent(component: string) {
+    console.log("home" , component)
     this.currentComponent = component;
+    console.log("currentComponent" , this.currentComponent)
+
   }
 
 }
