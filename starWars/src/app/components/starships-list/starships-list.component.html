@@ -1,13 +1,39 @@
 <ul class="starshipsContainer">
-    <li *ngFor="let starShip of starShips" class="starshipsContainer">
-        <div class="starshipContainer">
-            <div class="starship">
-                <div class="starshipContent">
-                    <div class="starshipNameContainer">
-                        <p class="starshipName">{{ starShip.name }}</p>
+    <li *ngFor="let starShip of starShips; let i = index" class="starshipContainer">
+        <div class="starship" (click)="selectStarship(i)" (click)="loadStarshipComponent(starShip)">
+
+            <div class="starshipContent">
+                <div class="starshipNameContainer">
+                    <p class="starshipName">{{ starShip.name }}</p>
+                </div>
+                <div class="starshipModelContainer">
+                    <p class="starshipModel">{{ starShip.model }}</p>
+                </div>
+            </div>
+            <div class="starshipInfo" *ngIf="selectedStarshipIndex === i">
+                <div class="basicInfoContainer">
+                    <div class="starshipImageContainer">
+                        <img class="starshipPicture" src="{{ imageUrl }}" alt="{{ starShip.name }}">
                     </div>
-                    <div class="starshipModelContainer">
-                        <p class="starshipModel">{{ starShip.model }}</p>
+                    <div class="starshipDataContainer">
+                        <p class="starshipDetails">Manufacturer: {{ starShip.manufacturer }}</p>
+                        <p class="starshipDetails">Cargo Capacity: {{ starShip.cargo_capacity }}</p>
+                        <p class="starshipDetails">Crew: {{ starShip.crew }}</p>
+                        <p class="starshipDetails">Consumables: {{ starShip.consumables }}</p>
+                        <p class="starshipDetails">Cargo Capacity: {{ starShip.cargo_capacity }}</p>
+
+                    </div>
+                </div>
+                <div class="extraInfoContainer">
+                    <div *ngIf="starShip.pilots.length > 0">
+                        <div class="pilotsTitle">
+                            <p class="starshipDetails pilotTitle">Pilots</p>
+                        </div>
+                        <div class="pilotsInfoContainer">
+                            <div *ngFor="let pilot of starShip.pilots">
+                                <div class="pilotInfo starshipDetails">{{pilot}}</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

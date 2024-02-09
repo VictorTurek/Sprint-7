@@ -16,6 +16,6 @@ export class HomeListComponent {
 
   selectComponent(component: string) {
     this.componentSelected.emit(component);
-    console.log("click", component)
+    //console.log("click", component)
   }
 }
