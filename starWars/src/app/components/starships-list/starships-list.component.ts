@@ -40,8 +40,14 @@ export class StarshipsListComponent implements OnInit {
     //console.log("starship", starShip)
     this.extraerUrlId(starShip.url)
     //console.log("starShip.pilots", starShip.pilots.length)
-
   }
+
+
+  extractPilotNumber(url: string): string {
+    const parts = url.split('/');
+    return parts[parts.length - 2]; // El número está en la penúltima posición
+}
+
 
   positionInto(i: number) {
     //console.log("starship position", i)
@@ -56,6 +62,7 @@ export class StarshipsListComponent implements OnInit {
   }
 
   generateImageUrl(id: string): string { //esta funcion genera la url para buscar la magen de las naves.
+    // console.log(id)
     return "https://starwars-visualguide.com/assets/img/starships/" + id + ".jpg";
   }
 
@@ -74,7 +81,6 @@ export class StarshipsListComponent implements OnInit {
           this.loading = false; // Establecer la bandera de carga en falso después de que se complete la solicitud
         },
         (error) => {
-          //console.error('Error loading starships:', error);
           this.loading = false; // Establecer la bandera de carga en falso en caso de error
         }
       );

@@ -13,7 +13,8 @@
             <div class="starshipInfo" *ngIf="selectedStarshipIndex === i">
                 <div class="basicInfoContainer">
                     <div class="starshipImageContainer">
-                        <img class="starshipPicture" src="{{ imageUrl }}" alt="{{ starShip.name }}" (error)="handleImageError()">
+                        <img class="starshipPicture" src="{{ imageUrl }}" alt="{{ starShip.name }}"
+                            (error)="handleImageError()">
                     </div>
                     <div class="starshipDataContainer">
                         <p class="starshipDetails">Manufacturer: {{ starShip.manufacturer }}</p>
@@ -21,32 +22,34 @@
                         <p class="starshipDetails">Crew: {{ starShip.crew }}</p>
                         <p class="starshipDetails">Consumables: {{ starShip.consumables }}</p>
                         <p class="starshipDetails">Cargo Capacity: {{ starShip.cargo_capacity }}</p>
-
                     </div>
                 </div>
                 <div class="extraInfoContainer">
-                    <div *ngIf="starShip.pilots.length > 0">
+                    <div *ngIf="starShip.pilots.length > 0" class="dividerLine">
                         <div class="extraInfoTitle">
-                            <p class="starshipDetails pilotTitle">Pilots</p>
+                            <p class="starshipDetails pilotTitle infoTitle">Pilots</p>
                         </div>
-                        <div class="pilotsInfoContainer">
+                        <div class="InfoContainer">
                             <div *ngFor="let pilot of starShip.pilots">
-                                <div class="extraInfoInfo starshipDetails">{{pilot}}</div>
+                                <div class="extraInfoCard">
+                                    <div class="extraInfoInfo starshipDetails">{{extractPilotNumber(pilot)}}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div *ngIf="starShip.films.length > 0">
+                    <div *ngIf="starShip.films.length > 0" class="dividerLine">
                         <div class="extraInfoTitle">
-                            <p class="starshipDetails filmsTitle">Films</p>
+                            <p class="starshipDetails filmsTitle infoTitle">Films</p>
                         </div>
-                        <div class="filmsInfoContainer">
+                        <div class="InfoContainer">
                             <div *ngFor="let film of starShip.films">
-                                <div class="extraInfoInfo starshipDetails">{{film}}</div>
+                                <div class="extraInfoCard">
+                                    <div class="extraInfoInfo starshipDetails">{{film}}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

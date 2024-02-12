@@ -10,6 +10,7 @@
     .basicInfoContainer
         display: flex
         flex-wrap: wrap
+        align-items: center
 
     .starshipContainer
         display: flex
@@ -18,7 +19,7 @@
         .starship
             border: 2px solid grey
             border-radius: 5px
-            width: 60%
+            width: 80%
             margin: 5px
 
             .starshipContent
@@ -67,6 +68,10 @@
         justify-content: center
         width: 100%
 
+        .dividerLine
+           //border-top: 1px dashed #464646
+           margin-top: 10px
+
         .starshipDetails
             color: white
 
@@ -74,6 +79,18 @@
             display: flex
             justify-content: center
 
-        .pilotsInfoContainer
+            .infoTitle
+                font-family: 'starWarsFont', sans-serif
+                font-size: 0.8rem
+
+        .InfoContainer
             display: flex
             flex-wrap: wrap
+            justify-content: center
+
+            .extraInfoCard
+                border: 2px solid grey
+                border-radius: 5px
+                width: 200px
+                height: 250px
+                margin: 5px
