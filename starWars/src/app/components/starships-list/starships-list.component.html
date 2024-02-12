@@ -13,7 +13,7 @@
             <div class="starshipInfo" *ngIf="selectedStarshipIndex === i">
                 <div class="basicInfoContainer">
                     <div class="starshipImageContainer">
-                        <img class="starshipPicture" src="{{ imageUrl }}" alt="{{ starShip.name }}">
+                        <img class="starshipPicture" src="{{ imageUrl }}" alt="{{ starShip.name }}" (error)="handleImageError()">
                     </div>
                     <div class="starshipDataContainer">
                         <p class="starshipDetails">Manufacturer: {{ starShip.manufacturer }}</p>

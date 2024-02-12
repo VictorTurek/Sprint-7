@@ -9,12 +9,14 @@ import { Observable } from 'rxjs';
 
 export class StarshipsService {
   
-  private apiUrl = 'https://swapi.dev/api/';
+  private apiUrl = 'https://swapi.dev/api/starships/';
 
   constructor(private http: HttpClient) { }
 
-  getStarships(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}starships/`);
+  getStarshipsService(page: number): Observable<any> {
+    console.log("Servicio. Estamos en la pagina", page);
+    return this.http.get<any>(`${this.apiUrl}?page=${page}`);
+    
   }
 
 }
