@@ -1,43 +1,79 @@
-.globalContainer
+
+.charactersContainer
+    display: flex
+    flex-direction: column
+    justify-content: center
     padding: 0px
+    background-color: black
     margin-top: 0px
 
-    .charactersContainer
+    .basicInfoContainer
+        display: flex
+        flex-wrap: wrap
+
+    .characterContainer
+        display: flex
+        justify-content: center
+
+        .character
+            border: 2px solid grey
+            border-radius: 5px
+            width: 60%
+            margin: 5px
+
+            .characterContent
+
+                .characterNameContainer
+                    display: flex
+                    justify-content: center
+
+                    .characterName
+                        font-size: 1rem
+                        margin: 10px
+                        font-family: 'starWarsFont', sans-serif
+                        color: #c9c9c9
+
+                .characterModelContainer
+                    display: flex
+                    justify-content: center
+
+                    .characterModel
+                        font-size: 0.8rem
+                        margin: 10px
+                        margin-top: 7px
+                        font-family: 'anakinmono', sans-serif
+                        color: #c0c0c0
+
+            .characterInfo
+                padding: 10px
+                display: flex
+                flex-wrap: wrap
+
+                .characterImageContainer
+                    width: 50%
+
+                    .characterPicture
+                        width: 90%
+
+                .characterDataContainer
+                    width: 50%
+
+                    .characterDetails
+                        color: white
+
+    .extraInfoContainer
         display: flex
         flex-direction: column
         justify-content: center
-        padding: 0px
-        background-color: black
+        width: 100%
 
-        .characterContainer
+        .characterDetails
+            color: white
+
+        .extraInfoTitle
             display: flex
             justify-content: center
 
-            .characters
-                border: 2px solid grey
-                border-radius: 5px
-                width: 60%
-                margin: 5px
-
-                .charactersContent
-
-                    .charactersNameContainer
-                        display: flex
-                        justify-content: center
-
-                        .charactersName
-                            font-size: 1rem
-                            margin: 10px
-                            font-family: 'starWarsFont', sans-serif
-                            color: #c9c9c9
-
-                    .charactersGenderContainer
-                        display: flex
-                        justify-content: center
-
-                        .charactersGender
-                            font-size: 0.8rem
-                            margin: 10px
-                            margin-top: 7px
-                            font-family: 'anakinmono', sans-serif
-                            color: #c0c0c0
+        .pilotsInfoContainer
+            display: flex
+            flex-wrap: wrap

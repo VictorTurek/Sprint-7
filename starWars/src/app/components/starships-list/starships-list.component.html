@@ -26,15 +26,27 @@
                 </div>
                 <div class="extraInfoContainer">
                     <div *ngIf="starShip.pilots.length > 0">
-                        <div class="pilotsTitle">
+                        <div class="extraInfoTitle">
                             <p class="starshipDetails pilotTitle">Pilots</p>
                         </div>
                         <div class="pilotsInfoContainer">
                             <div *ngFor="let pilot of starShip.pilots">
-                                <div class="pilotInfo starshipDetails">{{pilot}}</div>
+                                <div class="extraInfoInfo starshipDetails">{{pilot}}</div>
                             </div>
                         </div>
                     </div>
+
+                    <div *ngIf="starShip.films.length > 0">
+                        <div class="extraInfoTitle">
+                            <p class="starshipDetails filmsTitle">Films</p>
+                        </div>
+                        <div class="filmsInfoContainer">
+                            <div *ngFor="let film of starShip.films">
+                                <div class="extraInfoInfo starshipDetails">{{film}}</div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

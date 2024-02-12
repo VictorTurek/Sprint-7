@@ -9,12 +9,13 @@ import { Observable } from 'rxjs';
 
 export class CharactersService {
 
-  private apiUrl = 'https://swapi.dev/api/';
+  private apiUrl = 'https://swapi.dev/api/people/';
 
   constructor(private http: HttpClient) { }
 
-  getCharacters(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}people/`);
-  }
+  getcharactersService(page: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}?page=${page}`);  }
 
 }
+
+

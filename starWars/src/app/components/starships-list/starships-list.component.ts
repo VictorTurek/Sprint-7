@@ -37,15 +37,14 @@ export class StarshipsListComponent implements OnInit {
   }
 
   loadStarshipComponent(starShip: any) {
-    console.log("starship", starShip)
-    //this.componentSelected.emit(starShip.name);
+    //console.log("starship", starShip)
     this.extraerUrlId(starShip.url)
-    console.log("starShip.pilots", starShip.pilots.length)
+    //console.log("starShip.pilots", starShip.pilots.length)
 
   }
 
   positionInto(i: number) {
-    console.log("starship position", i)
+    //console.log("starship position", i)
   }
 
   extraerUrlId(url: string) {
@@ -54,7 +53,6 @@ export class StarshipsListComponent implements OnInit {
     if (match && match[1]) {     // Si hay una coincidencia y se captura un número
       this.imageUrl = this.generateImageUrl(match[1]);
     }
-    console.log("this.imageUrl ", this.imageUrl)
   }
 
   generateImageUrl(id: string): string { //esta funcion genera la url para buscar la magen de las naves.
@@ -76,7 +74,7 @@ export class StarshipsListComponent implements OnInit {
           this.loading = false; // Establecer la bandera de carga en falso después de que se complete la solicitud
         },
         (error) => {
-          console.error('Error loading starships:', error);
+          //console.error('Error loading starships:', error);
           this.loading = false; // Establecer la bandera de carga en falso en caso de error
         }
       );

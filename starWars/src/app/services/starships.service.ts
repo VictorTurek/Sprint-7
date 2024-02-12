@@ -14,7 +14,7 @@ export class StarshipsService {
   constructor(private http: HttpClient) { }
 
   getStarshipsService(page: number): Observable<any> {
-    console.log("Servicio. Estamos en la pagina", page);
+    //console.log("Servicio. Estamos en la pagina", page);
     return this.http.get<any>(`${this.apiUrl}?page=${page}`);
     
   }
