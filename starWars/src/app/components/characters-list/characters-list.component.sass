@@ -1,7 +1,7 @@
 
 .charactersContainer
     display: flex
-    flex-direction: column
+    flex-wrap: wrap
     justify-content: center
     padding: 0px
     background-color: black
@@ -10,18 +10,26 @@
     .basicInfoContainer
         display: flex
         flex-wrap: wrap
+        width: 100%
 
     .characterContainer
-        display: flex
-        justify-content: center
+        // display: flex
+        // justify-content: center
 
         .character
+            display: flex
             border: 2px solid grey
-            border-radius: 5px
-            width: 60%
-            margin: 5px
+            border-radius: 7px
+            //width: 250px
+            margin: 10px
 
             .characterContent
+                
+                .characterImageListContainer
+
+                    .characterListPicture
+                        width: 250px
+                        border-radius: 5px
 
                 .characterNameContainer
                     display: flex
@@ -56,7 +64,7 @@
                         width: 90%
 
                 .characterDataContainer
-                    width: 50%
+                    width: 100%
 
                     .characterDetails
                         color: white

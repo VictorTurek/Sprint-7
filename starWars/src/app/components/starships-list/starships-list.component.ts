@@ -43,9 +43,13 @@ export class StarshipsListComponent implements OnInit {
   }
 
 
-  extractPilotNumber(url: string): string {
-    const parts = url.split('/');
-    return parts[parts.length - 2]; // El número está en la penúltima posición
+  extractNumber(url: string): string {
+        // Eliminar el segmento inicial "https://swapi.dev/api/"
+        let peopleToCharacter = url.replace('https://swapi.dev/api/people', 'https://swapi.dev/api/characters')
+        const path = peopleToCharacter.replace('https://swapi.dev/api/', '');
+        const finalPath = path.endsWith('/') ? path.slice(0, -1) : path;
+        //console.log(finalPath)
+        return finalPath;
 }
 
 

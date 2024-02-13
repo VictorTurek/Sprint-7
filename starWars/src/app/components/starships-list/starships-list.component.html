@@ -32,7 +32,8 @@
                         <div class="InfoContainer">
                             <div *ngFor="let pilot of starShip.pilots">
                                 <div class="extraInfoCard">
-                                    <div class="extraInfoInfo starshipDetails">{{extractPilotNumber(pilot)}}</div>
+                                    <!-- <div class="extraInfoInfo starshipDetails">{{extractNumber(pilot)}}</div> -->
+                                    <img class="extraInfoImage" src="https://starwars-visualguide.com/assets/img/{{extractNumber(pilot)}}.jpg" alt="pilot picture">
                                 </div>
                             </div>
                         </div>
@@ -45,7 +46,9 @@
                         <div class="InfoContainer">
                             <div *ngFor="let film of starShip.films">
                                 <div class="extraInfoCard">
-                                    <div class="extraInfoInfo starshipDetails">{{film}}</div>
+                                    <!-- <div class="extraInfoInfo starshipDetails">{{extractNumber(film)}}</div> -->
+                                    <img class="extraInfoImage" src="https://starwars-visualguide.com/assets/img/{{extractNumber(film)}}.jpg" alt="film poster">
+
                                 </div>
                             </div>
                         </div>

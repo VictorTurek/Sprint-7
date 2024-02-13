@@ -11,6 +11,7 @@
         display: flex
         flex-wrap: wrap
         align-items: center
+        width: 100%
 
     .starshipContainer
         display: flex
@@ -51,15 +52,20 @@
                 flex-wrap: wrap
 
                 .starshipImageContainer
-                    width: 50%
+                    display: flex
+                    justify-content: center
+                    width: max(50%, 250px)
+                    
 
                     .starshipPicture
                         width: 90%
+                        border-radius: 5px
 
                 .starshipDataContainer
-                    width: 50%
+                    width: max(50%, 250px)
 
                     .starshipDetails
+                        width: 90%
                         color: white
 
     .extraInfoContainer
@@ -70,7 +76,7 @@
 
         .dividerLine
            //border-top: 1px dashed #464646
-           margin-top: 10px
+            margin-top: 10px
 
         .starshipDetails
             color: white
@@ -78,6 +84,7 @@
         .extraInfoTitle
             display: flex
             justify-content: center
+            margin-top: 10px
 
             .infoTitle
                 font-family: 'starWarsFont', sans-serif
@@ -89,8 +96,15 @@
             justify-content: center
 
             .extraInfoCard
+                display: flex
+                flex-wrap: wrap
+                justify-content: center
                 border: 2px solid grey
                 border-radius: 5px
                 width: 200px
-                height: 250px
+                height: 280px
                 margin: 5px
+
+                .extraInfoImage
+                    width: 100%
+                    border-radius: 5px

@@ -41,7 +41,6 @@ export class charactersListComponent implements OnInit {
     //console.log("character", character)
     this.extraerUrlId(character.url)
     //console.log("character.pilots", character.pilots.length)
-
   }
 
   positionInto(i: number) {
@@ -91,4 +90,28 @@ export class charactersListComponent implements OnInit {
       this.getcharacters(this.currentPage);
     }
   }
+
+  extractNumber(url: any): string {
+    console.log("url", url)
+    let URL: string = url.url
+    
+    // Eliminar el segmento inicial "https://swapi.dev/api/"
+    let peopleToCharacter = URL.replace('https://swapi.dev/api/people', 'https://swapi.dev/api/characters')
+    const path = peopleToCharacter.replace('https://swapi.dev/api/', '');
+    const finalPath = path.endsWith('/') ? path.slice(0, -1) : path;
+    console.log(finalPath)
+    return finalPath;
+  }
+
+  extractNumber2(url: string): string {
+    console.log("url", url)
+  
+    // Eliminar el segmento inicial "https://swapi.dev/api/"
+    let peopleToCharacter = url.replace('https://swapi.dev/api/people', 'https://swapi.dev/api/characters')
+    const path = peopleToCharacter.replace('https://swapi.dev/api/', '');
+    const finalPath = path.endsWith('/') ? path.slice(0, -1) : path;
+    console.log(finalPath)
+    return finalPath;
+  }
+
 }

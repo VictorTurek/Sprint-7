@@ -4,6 +4,11 @@
         <div class="character" (click)="selectcharacter(i)" (click)="loadcharacterComponent(character)">
 
             <div class="characterContent">
+
+                <div class="characterImageListContainer">
+                    <img class="characterListPicture" src="https://starwars-visualguide.com/assets/img/{{extractNumber(character)}}.jpg" alt="{{ character.name }}" (error)="handleImageError()">
+                </div>
+
                 <div class="characterNameContainer">
                     <p class="characterName">{{ character.name }}</p>
                 </div>
@@ -13,14 +18,11 @@
             </div>
             <div class="characterInfo" *ngIf="selectedCharacterIndex === i">
                 <div class="basicInfoContainer">
-                    <div class="characterImageContainer">
-                        <img class="characterPicture" src="{{ imageUrl }}" alt="{{ character.name }}" (error)="handleImageError()">
-                    </div>
                     <div class="characterDataContainer">
                         <p class="characterDetails">Gender: {{ character.gender }}</p>
-                        <p class="characterDetails">Homewolrd: {{ character.homeworld }}</p>
                         <p class="characterDetails">Height: {{ character.height }}</p>
                         <p class="characterDetails">Weight: {{ character.mass }}</p>
+                        <p class="characterDetails">Homewolrd: {{ character.homeworld }}</p>
                     </div>
                 </div>
                 <div class="extraInfoContainer">
@@ -42,6 +44,8 @@
                         <div class="filmsInfoContainer">
                             <div *ngFor="let film of character.films">
                                 <div class="extraInfoInfo characterDetails">{{film}}</div>
+                                <img class="characterListPicture" src="https://starwars-visualguide.com/assets/img/{{extractNumber2(film)}}.jpg" alt="{{ character.name }}" (error)="handleImageError()">
+
                             </div>
                         </div>
                     </div>
