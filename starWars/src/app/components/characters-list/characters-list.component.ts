@@ -33,8 +33,16 @@ export class charactersListComponent implements OnInit {
     this.getcharacters(this.currentPage);
   }
 
-  selectcharacter(index: number) {   // Método para seleccionar el character en función de su índice
-    this.selectedCharacterIndex = index;
+  // selectcharacter(index: number) {   // Método para seleccionar el character en función de su índice
+  //   this.selectedCharacterIndex = index;
+  // }
+
+  selectcharacter(index: number) {
+    if (this.selectedCharacterIndex === index) {
+      this.selectedCharacterIndex = null; // Si ya está seleccionado, deseleccionarlo
+    } else {
+      this.selectedCharacterIndex = index; // Si no está seleccionado, seleccionarlo
+    }
   }
 
   loadcharacterComponent(character: any) {

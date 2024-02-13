@@ -32,8 +32,12 @@ export class StarshipsListComponent implements OnInit {
     this.getStarships(this.currentPage);
   }
 
-  selectStarship(index: number) {   // Método para seleccionar el starship en función de su índice
-    this.selectedStarshipIndex = index;
+  selectStarship(index: number) {
+    if (this.selectedStarshipIndex === index) {
+      this.selectedStarshipIndex = null; // Si ya está seleccionado, deseleccionarlo
+    } else {
+      this.selectedStarshipIndex = index; // Si no está seleccionado, seleccionarlo
+    }
   }
 
   loadStarshipComponent(starShip: any) {
@@ -44,13 +48,13 @@ export class StarshipsListComponent implements OnInit {
 
 
   extractNumber(url: string): string {
-        // Eliminar el segmento inicial "https://swapi.dev/api/"
-        let peopleToCharacter = url.replace('https://swapi.dev/api/people', 'https://swapi.dev/api/characters')
-        const path = peopleToCharacter.replace('https://swapi.dev/api/', '');
-        const finalPath = path.endsWith('/') ? path.slice(0, -1) : path;
-        //console.log(finalPath)
-        return finalPath;
-}
+    // Eliminar el segmento inicial "https://swapi.dev/api/"
+    let peopleToCharacter = url.replace('https://swapi.dev/api/people', 'https://swapi.dev/api/characters')
+    const path = peopleToCharacter.replace('https://swapi.dev/api/', '');
+    const finalPath = path.endsWith('/') ? path.slice(0, -1) : path;
+    //console.log(finalPath)
+    return finalPath;
+  }
 
 
   positionInto(i: number) {
