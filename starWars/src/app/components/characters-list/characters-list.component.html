@@ -2,59 +2,76 @@
     <li *ngFor="let character of characters; let i = index" class="characterContainer">
         <div class="character" (click)="selectcharacter(i)" (click)="loadcharacterComponent(character)">
 
-            <div class="characterContent">
+            <div class="upperPart">
 
-                <div class="characterImageListContainer">
-                    <img class="characterListPicture"
-                        src="https://starwars-visualguide.com/assets/img/{{extractNumber(character)}}.jpg"
-                        alt="{{ character.name }}" (error)="handleImageError()">
-                </div>
+                <div class="characterContent">
+                    <div class="characterImageListContainer">
+                        <img class="characterListPicture"
+                            src="https://starwars-visualguide.com/assets/img/{{extractNumber(character)}}.jpg"
+                            alt="{{ character.name }}" (error)="handleImageError()">
+                    </div>
 
-                <div class="characterNameContainer">
-                    <p class="characterName">{{ character.name }}</p>
-                </div>
-                <div class="characterModelContainer">
-                    <p class="characterModel">{{ character.birth_year }}</p>
-                </div>
-            </div>
-            <div class="characterInfo" *ngIf="selectedCharacterIndex === i">
-                <div class="basicInfoContainer">
-                    <div class="characterDataContainer">
-                        <p class="characterDetails">Gender: {{ character.gender }}</p>
-                        <p class="characterDetails">Height: {{ character.height }}</p>
-                        <p class="characterDetails">Weight: {{ character.mass }}</p>
-                        <p class="characterDetails">Homewolrd: {{ character.homeworld }}</p>
+                    <div class="characterNameContainer">
+                        <p class="characterName">{{ character.name }}</p>
+                    </div>
+                    <div class="characterModelContainer">
+                        <p class="characterModel">{{ character.birth_year }}</p>
                     </div>
                 </div>
-                <div class="extraInfoContainer">
-                    <div *ngIf="character.starships.length > 0">
-                        <div class="extraInfoTitle">
-                            <p class="characterDetails pilotTitle">Starships</p>
+                <div class="characterInfo" *ngIf="selectedCharacterIndex === i">
+                    <div class="basicInfoContainer">
+                        <div class="characterDataContainer">
+                            <p class="characterDetails">Gender: {{ character.gender }}</p>
+                            <p class="characterDetails">Height: {{ character.height }}</p>
+                            <p class="characterDetails">Weight: {{ character.mass }}</p>
+                            <p class="characterDetails">Homeworld:</p>
+                            <img class="homeWorldPicture"
+                            src="https://starwars-visualguide.com/assets/img/{{extractNumber2(character.homeworld)}}.jpg"
+                            alt="{{ character.homeworld }}" (error)="handleImageError2($event)">
+
+
                         </div>
-                        <div class="imagesContainer">
-                            <div *ngFor="let starship of character.starships">
-                                <img class="starshipPicture"
-                                    src="https://starwars-visualguide.com/assets/img/{{extractNumber2(starship)}}.jpg"
-                                    alt="{{ character.name }}" (error)="handleImageError()">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bottomPart">
+
+                <div class="characterInfo" *ngIf="selectedCharacterIndex === i">
+                    <div class="extraInfoContainer">
+                        <div *ngIf="character.starships.length > 0">
+                            <div class="extraInfoTitle">
+                                <p class="characterDetails pilotTitle">Starships</p>
+                            </div>
+                            <div class="imagesContainer">
+                                <div *ngFor="let starship of character.starships">
+                                    <div class="starshipInfo">
+                                        <img class="starshipPicture"
+                                            src="https://starwars-visualguide.com/assets/img/{{extractNumber2(starship)}}.jpg"
+                                            alt="" (error)="handleImageError()">
+                                        <!-- <p class="starshipName">{{starship.name}}</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="character.films.length > 0">
+                            <div class="extraInfoTitle">
+                                <p class="characterDetails filmsTitle">Films</p>
+                            </div>
+                            <div class="imagesContainer">
+                                <div *ngFor="let film of character.films">
+                                    <img class="filmPicture"
+                                        src="https://starwars-visualguide.com/assets/img/{{extractNumber2(film)}}.jpg"
+                                        alt="{{ character.name }}" (error)="handleImageError()">
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div *ngIf="character.films.length > 0">
-                        <div class="extraInfoTitle">
-                            <p class="characterDetails filmsTitle">Films</p>
-                        </div>
-                        <div class="imagesContainer">
-                            <div *ngFor="let film of character.films">
-                                <img class="filmPicture"
-                                    src="https://starwars-visualguide.com/assets/img/{{extractNumber2(film)}}.jpg"
-                                    alt="{{ character.name }}" (error)="handleImageError()">
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
             </div>
+
         </div>
     </li>
 </ul>

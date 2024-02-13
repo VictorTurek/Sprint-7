@@ -63,6 +63,10 @@ export class charactersListComponent implements OnInit {
     this.imageUrl = this.imageNotFoundUrl; // Cargar la imagen de reemplazo en caso de error
   }
 
+  handleImageError2(event: any) {
+    event.target.style.display = 'none';
+  }
+
   getcharacters(currentPage: number): void {
     // Verificar si ya se está cargando una página antes de hacer otra solicitud
     if (!this.loading) {
@@ -113,5 +117,6 @@ export class charactersListComponent implements OnInit {
     console.log(finalPath)
     return finalPath;
   }
+  
 
 }

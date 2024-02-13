@@ -11,13 +11,19 @@
         display: flex
         flex-wrap: wrap
         width: 100%
+        align-content: center
 
     .characterContainer
         // display: flex
         // justify-content: center
 
+        .upperPart
+            display: flex
+            flex-wrap: wrap
+
         .character
             display: flex
+            flex-direction: column
             border: 2px solid grey
             border-radius: 7px
             //width: 250px
@@ -56,6 +62,8 @@
                 padding: 10px
                 display: flex
                 flex-wrap: wrap
+                margin-left: auto
+                margin-right: auto
 
                 .characterImageContainer
                     width: 50%
@@ -64,10 +72,14 @@
                         width: 90%
 
                 .characterDataContainer
-                    width: 100%
+                    text-align: center
 
                     .characterDetails
-                        color: white
+                        color: #c9c9c9
+                        font-family: 'anakinmono', sans-serif
+
+                    .homeWorldPicture
+                        width: 200px
 
             .extraInfoContainer
                 display: flex
@@ -75,10 +87,17 @@
                 justify-content: center
                 width: 100%
 
+                .extraInfoTitle
+                    display: flex
+                    justify-content: center
+
                 .imagesContainer
                     display: flex
                     flex-wrap: wrap
                     justify-content: center
+                    // min-width: 500px
+                    // max-width: 800px
+                    width: 800px
 
                     .filmPicture
                         width: 180px
@@ -88,12 +107,13 @@
                         width: 250px
                         margin: 5px
 
-                .characterDetails
-                    color: white
+                    .starshipName
+                        color: white
 
-                    .extraInfoTitle
-                        display: flex
-                        justify-content: center
+                .characterDetails
+                    color: #c9c9c9
+                    font-family: 'starWarsFont', sans-serif
+                                        
 
                     .pilotsInfoContainer
                         display: flex
