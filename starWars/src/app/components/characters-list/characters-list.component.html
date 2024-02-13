@@ -1,4 +1,3 @@
-
 <ul class="charactersContainer">
     <li *ngFor="let character of characters; let i = index" class="characterContainer">
         <div class="character" (click)="selectcharacter(i)" (click)="loadcharacterComponent(character)">
@@ -6,7 +5,9 @@
             <div class="characterContent">
 
                 <div class="characterImageListContainer">
-                    <img class="characterListPicture" src="https://starwars-visualguide.com/assets/img/{{extractNumber(character)}}.jpg" alt="{{ character.name }}" (error)="handleImageError()">
+                    <img class="characterListPicture"
+                        src="https://starwars-visualguide.com/assets/img/{{extractNumber(character)}}.jpg"
+                        alt="{{ character.name }}" (error)="handleImageError()">
                 </div>
 
                 <div class="characterNameContainer">
@@ -30,9 +31,11 @@
                         <div class="extraInfoTitle">
                             <p class="characterDetails pilotTitle">Starships</p>
                         </div>
-                        <div class="pilotsInfoContainer">
+                        <div class="imagesContainer">
                             <div *ngFor="let starship of character.starships">
-                                <div class="extraInfoInfo characterDetails">{{starship}}</div>
+                                <img class="starshipPicture"
+                                    src="https://starwars-visualguide.com/assets/img/{{extractNumber2(starship)}}.jpg"
+                                    alt="{{ character.name }}" (error)="handleImageError()">
                             </div>
                         </div>
                     </div>
@@ -41,11 +44,11 @@
                         <div class="extraInfoTitle">
                             <p class="characterDetails filmsTitle">Films</p>
                         </div>
-                        <div class="filmsInfoContainer">
+                        <div class="imagesContainer">
                             <div *ngFor="let film of character.films">
-                                <div class="extraInfoInfo characterDetails">{{film}}</div>
-                                <img class="characterListPicture" src="https://starwars-visualguide.com/assets/img/{{extractNumber2(film)}}.jpg" alt="{{ character.name }}" (error)="handleImageError()">
-
+                                <img class="filmPicture"
+                                    src="https://starwars-visualguide.com/assets/img/{{extractNumber2(film)}}.jpg"
+                                    alt="{{ character.name }}" (error)="handleImageError()">
                             </div>
                         </div>
                     </div>
