@@ -4,12 +4,13 @@ import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CardModule, InputTextModule, ReactiveFormsModule, ButtonModule, CommonModule],
+  imports: [CardModule, InputTextModule, ReactiveFormsModule, ButtonModule, CommonModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.sass'
 })

@@ -21,4 +21,8 @@ export class HeaderComponent {
     this.router.navigate(['/login']); // Reemplaza 'login' con la ruta real de tu componente de login
   }
 
+  navigateToSignUp() {
+    this.router.navigate(['/register']); // Reemplaza 'login' con la ruta real de tu componente de login
+  }
+
 }
