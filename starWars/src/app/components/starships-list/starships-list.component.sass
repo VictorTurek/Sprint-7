@@ -4,8 +4,9 @@
     flex-direction: column
     justify-content: center
     padding: 0px
-    //background-color: black
     margin-top: 0px
+    width: 100%
+    max-width: 1400px
 
     .basicInfoContainer
         display: flex
@@ -20,7 +21,7 @@
         .starship
             border: 2px solid grey
             border-radius: 5px
-            width: 80%
+            width: 60%
             margin: 5px
 
             .starshipContent
@@ -55,7 +56,6 @@
                     display: flex
                     justify-content: center
                     width: max(50%, 250px)
-                    
 
                     .starshipPicture
                         width: 90%
@@ -108,3 +108,7 @@
                 .extraInfoImage
                     width: 100%
                     border-radius: 5px
+
+:host
+    display: flex
+    justify-content: center

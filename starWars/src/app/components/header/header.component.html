@@ -2,8 +2,11 @@
     <div class="col-sm-4 pageInfo">
 
     </div>
-    <div class="col-sm-4 logoContainer" (click)="reloadPage()">
-        <img class="logoStarWars" src="../../../assets/star-wars-logo.png" alt="logo Star Wars">
+    <div class="col-sm-4 logoContainer">
+        <!-- Utiliza routerLink para navegar a la página principal -->
+        <a routerLink="/" >
+            <img src="../../../assets/star-wars-logo.png" alt="logo Star Wars" class="logoStarWars">
+        </a>
     </div>
     <div class="col-sm-4 userOptions">
         <div class="userLoginOptions">

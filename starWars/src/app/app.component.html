@@ -1,5 +1,9 @@
 
-<app-home/>
+<app-header></app-header>
+<app-menu (componentSelected)="showComponent($event)"></app-menu>
+<app-home-list *ngIf="currentComponent === 'home'" (componentSelected)="showComponent($event)"></app-home-list>
+<app-starships *ngIf="currentComponent === 'starships'" (componentSelected)="showComponent($event)"></app-starships>
+<app-characters *ngIf="currentComponent === 'characters'" (componentSelected)="showComponent($event)"></app-characters>
 
 <router-outlet></router-outlet>
 

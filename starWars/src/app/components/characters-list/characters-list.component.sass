@@ -4,8 +4,8 @@
     flex-wrap: wrap
     justify-content: center
     padding: 0px
-    //background-color: black
     margin-top: 0px
+    max-width: 1600px
 
     .basicInfoContainer
         display: flex
@@ -14,8 +14,6 @@
         align-content: center
 
     .characterContainer
-        // display: flex
-        // justify-content: center
 
         .upperPart
             display: flex
@@ -113,8 +111,11 @@
                 .characterDetails
                     color: #c9c9c9
                     font-family: 'starWarsFont', sans-serif
-                                        
 
                     .pilotsInfoContainer
                         display: flex
                         flex-wrap: wrap
+
+:host
+    display: flex
+    justify-content: center

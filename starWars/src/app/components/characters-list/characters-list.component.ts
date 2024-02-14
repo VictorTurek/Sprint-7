@@ -33,10 +33,6 @@ export class charactersListComponent implements OnInit {
     this.getcharacters(this.currentPage);
   }
 
-  // selectcharacter(index: number) {   // Método para seleccionar el character en función de su índice
-  //   this.selectedCharacterIndex = index;
-  // }
-
   selectcharacter(index: number) {
     if (this.selectedCharacterIndex === index) {
       this.selectedCharacterIndex = null; // Si ya está seleccionado, deseleccionarlo
@@ -104,25 +100,24 @@ export class charactersListComponent implements OnInit {
   }
 
   extractNumber(url: any): string {
-    console.log("url", url)
+    //console.log("url", url)
     let URL: string = url.url
     
     // Eliminar el segmento inicial "https://swapi.dev/api/"
     let peopleToCharacter = URL.replace('https://swapi.dev/api/people', 'https://swapi.dev/api/characters')
     const path = peopleToCharacter.replace('https://swapi.dev/api/', '');
     const finalPath = path.endsWith('/') ? path.slice(0, -1) : path;
-    console.log(finalPath)
+    //onsole.log(finalPath)
     return finalPath;
   }
 
   extractNumber2(url: string): string {
-    console.log("url", url)
-  
+ 
     // Eliminar el segmento inicial "https://swapi.dev/api/"
     let peopleToCharacter = url.replace('https://swapi.dev/api/people', 'https://swapi.dev/api/characters')
     const path = peopleToCharacter.replace('https://swapi.dev/api/', '');
     const finalPath = path.endsWith('/') ? path.slice(0, -1) : path;
-    console.log(finalPath)
+    //console.log(finalPath)
     return finalPath;
   }
   

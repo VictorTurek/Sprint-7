@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-home-list',
   standalone: true,
-  imports: [RouterLinkActive],
+  imports: [RouterLinkActive, RouterLink],
   templateUrl: './home-list.component.html',
   styleUrl: './home-list.component.sass'
 })
