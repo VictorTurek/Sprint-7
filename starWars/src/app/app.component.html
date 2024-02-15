@@ -5,5 +5,6 @@
 <app-starships *ngIf="currentComponent === 'starships'" (componentSelected)="showComponent($event)"></app-starships>
 <app-characters *ngIf="currentComponent === 'characters'" (componentSelected)="showComponent($event)"></app-characters>
 
+<p-toast></p-toast>
 <router-outlet></router-outlet>
 

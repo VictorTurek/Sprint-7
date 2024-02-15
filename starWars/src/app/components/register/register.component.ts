@@ -1,23 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../types/auth';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CardModule, InputTextModule, ReactiveFormsModule, ButtonModule, CommonModule, RouterLink],
+  imports: [CardModule, InputTextModule, ReactiveFormsModule, ButtonModule, CommonModule, RouterLink, ToastModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.sass'
 })
 export class RegisterComponent {
 
-  constructor(private fb: FormBuilder, private authService: AuthService) { }
+  constructor(private fb: FormBuilder, private authService: AuthService, private messageService: MessageService, private router: Router) { }
 
   namePattern = '^(?=.*[a-zA-Z].*[a-zA-Z])[^\\s]+(\\s[^\\s]+)*$';
 
@@ -65,11 +67,19 @@ export class RegisterComponent {
 
 
   submitDetails() {
+    console.log("submit details");
     let postData = { ...this.registerForm.value };
     delete postData.confirmPassword;
     this.authService.registerUser(postData as User).subscribe(
-      response => console.log(response),
-      error => console.log(error)
+      response => {
+        console.log("response", response);
+        this.router.navigate(['login'])
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register Completed' });
+      },
+      error => {
+        console.log("response", error);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+      }
     )
   }
 

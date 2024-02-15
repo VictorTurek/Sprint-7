@@ -7,12 +7,13 @@ import { StarshipsListComponent } from './components/starships-list/starships-li
 import { charactersListComponent } from './components/characters-list/characters-list.component';
 import { HomeListComponent } from './components/home-list/home-list.component';
 import { RouterLinkActive } from '@angular/router';
+import { ToastModule } from 'primeng/toast';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, MenuComponent, CommonModule, StarshipsListComponent, charactersListComponent, HomeListComponent, RouterLinkActive],
+  imports: [RouterOutlet, HeaderComponent, MenuComponent, CommonModule, StarshipsListComponent, charactersListComponent, HomeListComponent, RouterLinkActive, ToastModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass'
 })
