@@ -1,5 +1,5 @@
 <div class="SignInContainer">
-    <form [formGroup]="registerForm" class="PCard">
+    <form [formGroup]="registerForm" class="PCard" (ngSubmit)="submitDetails()">
         <p-card header="Register">
 
             <div class="field">
@@ -45,27 +45,25 @@
                 <div class="errorMessage">
                     <small *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
                         <div *ngIf="password.errors?.['required']">Password is required.</div>
-                        <div *ngIf="password.errors?.['minLength']">Password should be valid.</div>
                     </small>
                 </div>
             </div>
 
             <div class="field">
-                <label for="password">Confirm Password:</label>
+                <label for="confirmPassword">Confirm Password:</label>
                 <input type="password" pInputText formControlName="confirmPassword" class="w-full" name="confirmPassword"
                     placeholder="type your password again" />
                 <div class="errorMessage">
                     <small *ngIf="password.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="block p-error">
-                        <div *ngIf="confirmPassword.errors?.['required']">Password is required.</div>
-                        <div *ngIf="confirmPassword.errors?.['minLength']">Password should be valid.</div>
+                        <div *ngIf="confirmPassword.errors?.['required']">Confirm the password.</div>
                     </small>
                     <small *ngIf="confirmPassword.errors && confirmPassword.errors['passwordMismatch']" class="block p-error">
-
+                        passwords must match.
                     </small>
                 </div>
             </div>
 
-            <p-button class="button" label="Sign In" styleClass="w-full" [disabled]="registerForm.invalid"></p-button>
+            <p-button class="button" label="Register" styleClass="w-full" [disabled]="registerForm.invalid" type="submit"></p-button>
 
             <div class="mt-2" class="register">
                 already a member?&nbsp; <a routerLink="/login"> Log In</a>

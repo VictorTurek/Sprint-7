@@ -5,6 +5,8 @@ import { RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../types/auth';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +17,7 @@ import { InputTextModule } from 'primeng/inputtext';
 })
 export class RegisterComponent {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private authService: AuthService) { }
 
   namePattern = '^(?=.*[a-zA-Z].*[a-zA-Z])[^\\s]+(\\s[^\\s]+)*$';
 
@@ -23,14 +25,14 @@ export class RegisterComponent {
     name: ['', [Validators.required, Validators.pattern(this.namePattern)]], // Solo letras y espacios
     lastName: ['', [Validators.required, Validators.pattern(this.namePattern)]], // Solo letras y espacios
     email: ['', [Validators.required, Validators.email]], // Email válido
-    password: ['', [Validators.required, Validators.minLength(6)]], // Mínimo 6 caracteres
+    password: ['', [Validators.required]], // Mínimo 6 caracteres
     confirmPassword: ['', Validators.required]
   }, { validators: this.passwordMatchValidator });
 
   passwordMatchValidator(group: FormGroup) {
     const passwordControl = group.get('password');
     const confirmPasswordControl = group.get('confirmPassword');
-  
+
     // Verificar si los controles existen y tienen valores
     if (passwordControl && confirmPasswordControl && passwordControl.value !== confirmPasswordControl.value) {
       confirmPasswordControl.setErrors({ passwordMismatch: true });
@@ -38,9 +40,6 @@ export class RegisterComponent {
       confirmPasswordControl?.setErrors(null); // Se usa "?." para manejar el caso de que confirmPasswordControl sea null
     }
   }
-
-
-
 
 
   get name() {
@@ -62,6 +61,16 @@ export class RegisterComponent {
 
   get confirmPassword() {
     return this.registerForm.controls['confirmPassword'];
+  }
+
+
+  submitDetails() {
+    let postData = { ...this.registerForm.value };
+    delete postData.confirmPassword;
+    this.authService.registerUser(postData as User).subscribe(
+      response => console.log(response),
+      error => console.log(error)
+    )
   }
 
 }
