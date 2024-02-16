@@ -9,7 +9,6 @@ import { ToastModule } from 'primeng/toast';
 import { AuthService } from '../../services/auth.service';
 import { MessageService } from 'primeng/api';
 
-
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -25,11 +24,11 @@ export class LoginComponent {
   })
 
   constructor(
-    private fb: FormBuilder, 
-    private authService: AuthService, 
-    private router: Router, 
-    private messageService: MessageService
-    ) { }
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private messageService: MessageService,
+  ) { }
 
   get email() {
     return this.loginForm.controls['email'];
@@ -42,18 +41,19 @@ export class LoginComponent {
   loginUser() {
     const { email, password } = this.loginForm.value;
     this.authService.getUserByEmail(email as string).subscribe(
-        (response: any[]) => {
-            if (response.length > 0 && typeof response[0].password === 'string' && response[0].password === password) {
-                sessionStorage.setItem('email', email as string);
-                this.router.navigate(['/']);
-            } else {
-                this.messageService.add({ severity: 'error', summary: 'Error', detail: 'email or password is wrong' })
-            }
-        },
-        error => {
-            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' })
+      (response: any[]) => {
+        if (response.length > 0 && typeof response[0].password === 'string' && response[0].password === password) {
+          sessionStorage.setItem('email', email as string);
+          this.authService.login();
+          this.router.navigate(['/']);
+                } else {
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'email or password is wrong' })
         }
+      },
+      error => {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' })
+      }
     )
-}
+  }
 
 }

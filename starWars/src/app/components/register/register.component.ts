@@ -67,20 +67,33 @@ export class RegisterComponent {
 
 
   submitDetails() {
-    console.log("submit details");
-    let postData = { ...this.registerForm.value };
-    delete postData.confirmPassword;
-    this.authService.registerUser(postData as User).subscribe(
-      response => {
-        console.log("response", response);
-        this.router.navigate(['login'])
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register Completed' });
+    // Verificar primero si el correo electrónico ya está registrado
+    this.authService.checkEmailExists(this.registerForm.value.email).subscribe(
+      (exists: boolean) => {
+        if (exists) {
+          // El correo electrónico ya está registrado
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Email already exists' });
+        } else {
+          // El correo electrónico no está registrado, proceder con el registro
+          let postData = { ...this.registerForm.value };
+          delete postData.confirmPassword;
+          this.authService.registerUser(postData as User).subscribe(
+            response => {
+              console.log("response", response);
+              this.router.navigate(['login'])
+              this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register Completed' });
+            },
+            error => {
+              console.log("response", error);
+              this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+            }
+          )
+        }
       },
       error => {
-        console.log("response", error);
+        console.error('Error checking email existence:', error);
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
       }
-    )
+    );
   }
-
 }

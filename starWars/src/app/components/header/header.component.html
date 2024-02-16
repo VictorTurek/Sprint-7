@@ -9,10 +9,17 @@
         </a>
     </div>
     <div class="col-sm-4 userOptions">
-        <div class="userLoginOptions">
+        <div *ngIf="!isLoggedIn" class="userLoginOptions">
             <div class="LogIn userLogins" (click)="navigateToLogin()">log in</div>
             <div class="separator userLogins">//</div>
-            <div class="signUp userLogins"(click)="navigateToSignUp()">sign up</div>
+            <div class="signUp userLogins"(click)="navigateToSignUp()">sign up {{ isLoggedIn }}</div>
+            
+        </div>
+        <div *ngIf="isLoggedIn" class="welcomeMessage">
+
+            <div class="userLogins">Welcome!</div>
+          
+            <div class="LogOut userLogins" (click)="logout()">log out</div>
         </div>
     </div>
 </div>
