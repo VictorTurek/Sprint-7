@@ -27,7 +27,7 @@ export class RegisterComponent {
     name: ['', [Validators.required, Validators.pattern(this.namePattern)]], // Solo letras y espacios
     lastName: ['', [Validators.required, Validators.pattern(this.namePattern)]], // Solo letras y espacios
     email: ['', [Validators.required, Validators.email]], // Email válido
-    password: ['', [Validators.required]], // Mínimo 6 caracteres
+    password: ['', [Validators.required, Validators.minLength(6)]], // Mínimo 6 caracteres
     confirmPassword: ['', Validators.required]
   }, { validators: this.passwordMatchValidator });
 

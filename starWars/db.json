@@ -6,6 +6,13 @@
       "lastName": "aa",
       "email": "amazon@orgasmix.es",
       "password": "1"
+    },
+    {
+      "id": "e09c",
+      "name": "victor",
+      "lastName": "aa",
+      "email": "amazon@orgasmix.es",
+      "password": "111111"
     }
   ]
 }
