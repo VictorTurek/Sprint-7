@@ -1,5 +1,5 @@
 <div class="logInContainer">
-    <form [formGroup]="loginForm" class="PCard">
+    <form [formGroup]="loginForm" class="PCard" (ngSubmit)="loginUser()">
         <p-card header="Log In">
 
             <div class="field">
@@ -25,7 +25,7 @@
                     </small>
                 </div>
             </div>
-            <p-button class="button" label="Sign In" styleClass="w-full" [disabled]="loginForm.invalid"></p-button>
+            <p-button class="button" label="Sign In" styleClass="w-full" [disabled]="loginForm.invalid" type="submit"></p-button>
 
             <div class="mt-2" class="register">
                 not a member?&nbsp;<a routerLink="/register"> Register</a>
