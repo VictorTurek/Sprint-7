@@ -9,17 +9,23 @@ import { AuthService } from '../../services/auth.service';
 import { User } from '../../types/auth';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CardModule, InputTextModule, ReactiveFormsModule, ButtonModule, CommonModule, RouterLink, ToastModule],
+  imports: [CardModule, InputTextModule, ReactiveFormsModule, ButtonModule, CommonModule, RouterLink, ToastModule, LoginComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.sass'
 })
 export class RegisterComponent {
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private messageService: MessageService, private router: Router) { }
+  constructor(
+    private fb: FormBuilder, 
+    private authService: AuthService, 
+    private messageService: MessageService, 
+    private router: Router
+    ) { }
 
   namePattern = '^(?=.*[a-zA-Z].*[a-zA-Z])[^\\s]+(\\s[^\\s]+)*$';
 
@@ -80,7 +86,8 @@ export class RegisterComponent {
           this.authService.registerUser(postData as User).subscribe(
             response => {
               console.log("response", response);
-              this.router.navigate(['login'])
+              this.authService.login(response) //llamar al componente login para hacer el login automaticamente/
+              this.router.navigate(['/'])
               this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register Completed' });
             },
             error => {
