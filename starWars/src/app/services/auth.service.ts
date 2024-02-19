@@ -48,10 +48,9 @@ export class AuthService {
   }
 
   login(loginData: any) {
-    console.log("estamos en el login")
     let LogiInEmail: String = loginData.email
     let LogiInpassword: String = loginData.password
-    console.log("email", LogiInEmail, "password", LogiInpassword)
+    //console.log("email", LogiInEmail, "password", LogiInpassword)
 
 
 
@@ -62,7 +61,7 @@ export class AuthService {
           this.isLoggedInSubject.next(true);
           // Aquí puedes realizar cualquier otra acción relacionada con el inicio de sesión, como redirigir a la página principal
           this.router.navigate(['/starships-list']);
-          console.log("this.isLoggedIn", this.isLoggedInSubject)
+          //console.log("this.isLoggedIn", this.isLoggedInSubject)
         } else {
           this.messageService.add({ severity: 'error', summary: 'Error', detail: 'email or password is wrong' })
         }
@@ -78,7 +77,7 @@ export class AuthService {
 
     // Aquí puedes realizar cualquier otra acción relacionada con el cierre de sesión, como limpiar el almacenamiento de sesiones y redirigir a la página de inicio de sesión
     this.router.navigate(['/login']);
-    console.log("this.isLoggedIn", this.isLoggedInSubject)
+    //console.log("this.isLoggedIn", this.isLoggedInSubject)
   }
 
 

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Subscription } from 'rxjs';
@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './header.component.html',
   styleUrl: './header.component.sass'
 })
-export class HeaderComponent implements OnDestroy {
+export class HeaderComponent implements OnDestroy, OnInit {
 
   isLoggedIn: boolean = false;
 
@@ -22,6 +22,13 @@ export class HeaderComponent implements OnDestroy {
     this.subscription = this.authService.isLoggedIn$.subscribe(isLoggedIn => {
       this.isLoggedIn = isLoggedIn;
     });
+  }
+
+  ngOnInit() {
+    console.log("sessionStorage", sessionStorage)
+    if (sessionStorage.length > 0) {
+      this.isLoggedIn = true
+    }
   }
 
   ngOnDestroy() {
@@ -40,6 +47,8 @@ export class HeaderComponent implements OnDestroy {
     //console.log("login en header component despues del routing", this.isLoggedIn )
 
   }
+
+
 
   navigateToSignUp() {
     this.router.navigate(['/register']); // Reemplaza 'login' con la ruta real de tu componente de login
