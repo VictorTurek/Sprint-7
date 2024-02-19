@@ -85,13 +85,13 @@ export class RegisterComponent {
           delete postData.confirmPassword;
           this.authService.registerUser(postData as User).subscribe(
             response => {
-              console.log("response", response);
+              //console.log("response", response);
               this.authService.login(response) //llamar al componente login para hacer el login automaticamente/
               this.router.navigate(['/'])
               this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register Completed' });
             },
             error => {
-              console.log("response", error);
+              //console.log("response", error);
               this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
             }
           )

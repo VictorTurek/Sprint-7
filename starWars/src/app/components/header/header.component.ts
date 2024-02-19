@@ -55,8 +55,7 @@ export class HeaderComponent implements OnDestroy, OnInit {
   }
 
   logout() {
-    sessionStorage.clear();
-    this.authService.logout(); // Llama al método logout del servicio AuthService
+        this.authService.logout(); // Llama al método logout del servicio AuthService
   }
 
 }

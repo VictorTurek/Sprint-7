@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../types/auth';
-import { Observable, map } from 'rxjs';
+import { Observable, map} from 'rxjs';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { MessageService } from 'primeng/api';
@@ -18,7 +18,6 @@ export class AuthService {
 
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
-
 
 
   constructor(
@@ -51,17 +50,12 @@ export class AuthService {
     let LogiInEmail: String = loginData.email
     let LogiInpassword: String = loginData.password
     //console.log("email", LogiInEmail, "password", LogiInpassword)
-
-
-
     this.getUserByEmail(LogiInEmail as string).subscribe(
       (response: any[]) => {
         if (response.length > 0 && typeof response[0].password === 'string' && response[0].password === LogiInpassword) {
           sessionStorage.setItem('email', LogiInEmail as string);
           this.isLoggedInSubject.next(true);
-          // Aquí puedes realizar cualquier otra acción relacionada con el inicio de sesión, como redirigir a la página principal
           this.router.navigate(['/starships-list']);
-          //console.log("this.isLoggedIn", this.isLoggedInSubject)
         } else {
           this.messageService.add({ severity: 'error', summary: 'Error', detail: 'email or password is wrong' })
         }
@@ -74,11 +68,8 @@ export class AuthService {
 
   logout() {
     this.isLoggedInSubject.next(false);
-
-    // Aquí puedes realizar cualquier otra acción relacionada con el cierre de sesión, como limpiar el almacenamiento de sesiones y redirigir a la página de inicio de sesión
+    sessionStorage.clear();
     this.router.navigate(['/login']);
-    //console.log("this.isLoggedIn", this.isLoggedInSubject)
   }
-
 
 }
